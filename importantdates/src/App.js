@@ -4,8 +4,7 @@ import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import {connect} from 'react-redux';
 import EventDetail from './components/eventDetail'
 import CurrentEventApi from './api/selectEventApi'
-import UserDetails from './containers/user-detail'
-import UserList from './containers/user-list'
+
 
 import {bindActionCreators} from 'redux';
 

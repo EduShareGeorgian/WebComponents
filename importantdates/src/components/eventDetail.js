@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import selectEvent from '../actions/index'
+
 
 
 class eventDetail extends Component {
