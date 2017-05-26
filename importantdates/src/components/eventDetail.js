@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-
-
 class eventDetail extends Component {
     renderList() {  
         if ( !this.props.activeDates) {
