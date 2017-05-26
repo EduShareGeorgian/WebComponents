@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithCamera 1`] = `
+<li
+  className="placeOfInterestItem ms-Grid-row"
+>
+  <div
+    className="ms-Grid-col ms-u-sm3"
+  >
+    <a
+      href="https://subway.com/home"
+    >
+      Chartwells
+    </a>
+  </div>
+  <a
+    className="mapLink"
+    href="https://maps.google.ca/?q=Chartwells"
+    target="_blank"
+  >
+    <div
+      class="foodServicesHoursRestaurant ms-Grid-col ms-u-sm1"
+    >
+      <i
+        aria-hidden="true"
+        class="ms-Icon ms-Icon--Camera"
+      />
+    </div>
+    <div
+      className="ms-Grid-col ms-u-sm1"
+    >
+       
+    </div>
+    <div
+      className="ms-Grid-col ms-u-sm1"
+    >
+      <i
+        aria-hidden="true"
+        className="ms-Icon ms-Icon--POI"
+      />
+    </div>
+    <div
+      className="ms-Grid-col ms-u-sm2"
+    >
+      E109
+    </div>
+  </a>
+  <div
+    className="ms-Grid-col ms-u-sm5"
+  >
+    7:30am - 2:00pm
+  </div>
+</li>
+`;
+
+exports[`WithoutCamera 1`] = `
+<li
+  className="placeOfInterestItem ms-Grid-row"
+>
+  <div
+    className="ms-Grid-col ms-u-sm3"
+  >
+    <a
+      href="https://subway.com/home"
+    >
+      Chartwells
+    </a>
+  </div>
+  <a
+    className="mapLink"
+    href="https://maps.google.ca/?q=Chartwells"
+    target="_blank"
+  >
+    <div
+      className="ms-Grid-col ms-u-sm1"
+    >
+       
+    </div>
+    <div
+      className="ms-Grid-col ms-u-sm1"
+    >
+      <i
+        aria-hidden="true"
+        className="ms-Icon ms-Icon--POI"
+      />
+    </div>
+    <div
+      className="ms-Grid-col ms-u-sm2"
+    >
+      E109
+    </div>
+  </a>
+  <div
+    className="ms-Grid-col ms-u-sm5"
+  >
+    7:30am - 2:00pm
+  </div>
+</li>
+`;
