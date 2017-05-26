@@ -2,21 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import App from '../App';
+import {Provider} from 'react-redux';
+import allReducers from '../reducers';
+import {createStore, applyMiddleware} from 'redux';
+jest.mock('react-dom');
+const store = createStore(
+    allReducers
+);
 
 describe('application launch', () => {
   it('should render App', () => {
-    const component = renderer.create(<App />);
-    const tree = component.toJSON();
-    expect(component).toMatchSnapshot();
+    const component = ReactDOM.render(
+    <Provider store= {store}>
+        <App />      
+        const tree = component.toJSON();      
+        expect(component).toMatchSnapshot(); 
+    </Provider>);   
+      
   });
 });
 
-/*
-describe('check links', () => {
-  it('should render App', () => {
-    const tree = renderer.create(
-    <Link page="http://www.facebook.com">Facebook</Link>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-  });
-});*/
+
+
