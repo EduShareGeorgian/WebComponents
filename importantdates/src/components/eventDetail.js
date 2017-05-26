@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
+import selectEvent from '../actions/selectEvent'
 
 
 class eventDetail extends Component {
@@ -11,30 +11,29 @@ class eventDetail extends Component {
         }
         return this.props.activeDates.map((activeDate) => {
             return (
-                <tr>
-                    <td>{activeDate.date}</td>
-                    <td>{activeDate.description}</td>
-                </tr>
+                <div className="importantDatesSeparator ms-Grid-row tableLine">
+                    <div className="ms-Grid-col ms-u-sm5">{activeDate.date}</div>
+                    <div className="ms-Grid-col ms-u-sm7">{activeDate.description}</div>
+                </div>
                 );
         });
     }
 
     render() {
         return (
-            <table ClassName="table">
-                <tbody>
+               <div>
                     {this.renderList()}
-                </tbody>
-            </table>
+              </div>
         );
     }
 }
+
+//   user: state.activeUser
 function mapStateToProps(state) {
     return {
+        activeDates: state.activeDates
     };
 }
 
-function matchDispatchToProps(dispatch){
- 
-}
-export default connect(mapStateToProps, matchDispatchToProps)(eventDetail);
+
+export default connect(mapStateToProps)(eventDetail);

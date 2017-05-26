@@ -2,20 +2,32 @@
   text-align: center;
 }
 
+
+.importantDates-webpart{
+  border: 1px solid #eaeaea;
+  width: 430px;height: 450px
+
+}
+
 table {
-    border-collapse: collapse;
-        margin-left: 20px;
-        width:400px;
-      max-height: 400px;
+  border-collapse: collapse;
+  margin-left: 20px;
+  width:400px;
+  max-height: 400px;
 }
 
 td {
     border: 1px solid black;
     height: 10px;
 }
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+.viewEvents{
+  margin-top: 20px;
 }
 
 .App-header {
@@ -25,6 +37,20 @@ td {
   color: white;
 }
 
+.importnantDates-img{
+  background-image: url('./Images/calendar.png');
+  /*background-size: 30px;*/
+}
+
+.importnantDates-img h2{
+   margin-left: 60px;
+   font-weight: 100;
+}
+.importantDatesSeparator {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: thin solid #eaeaea;
+}
 .App-intro {
   font-size: large;
 }
