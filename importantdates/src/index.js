@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import allReducers from './reducers';
 import {createStore, applyMiddleware} from 'redux';
-
+//
 const store = createStore(
     allReducers
 );
