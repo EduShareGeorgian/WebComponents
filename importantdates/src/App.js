@@ -20,7 +20,7 @@ render() {
     var dates = CurrentEventApi.fetchCurrentEvent(event.key)
     this.setState({activeDates: dates})
    }
-    return (
+    return (      
     <div>
        <div className="App">
           <Dropdown 
@@ -48,4 +48,7 @@ function matchDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(App);
+
+
+export {App};
 
