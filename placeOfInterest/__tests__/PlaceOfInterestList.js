@@ -4,7 +4,7 @@ import React from "react"
 describe( "Place of Interest list component", () => {
   it ("should render itself with an Office Fabric DetailsList component", () => {
     const renderedComponent = renderer.create(
-        <div></div>
+        <DetailsList></DetailsList>
     ).toJSON()
     expect(renderedComponent).toMatchSnapshot()
   })
