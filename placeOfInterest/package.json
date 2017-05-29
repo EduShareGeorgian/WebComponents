@@ -20,6 +20,7 @@
     "test:watch": "npm test -- --watch"
   },
   "dependencies": {
+    "office-ui-fabric-react": "^2.34.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
