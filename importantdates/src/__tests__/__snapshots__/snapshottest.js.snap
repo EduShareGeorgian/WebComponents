@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImportantDates 1`] = `
+<div
+  class="ms-Grid ms-bgColor-white WebPartOuterContainer"
+  id="HeaderContainer"
+>
+  <div
+    class="ms-Grid-row"
+  >
+    <div
+      class="ms-Grid-col ms-u-sm12 WebPartHeading"
+      style="background-image: url('../Images/calendar.svg')"
+    >
+      <h2>
+        Important Dates
+      </h2>
+    </div>
+  </div>
+</div>
+`;
