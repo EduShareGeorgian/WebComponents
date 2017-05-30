@@ -37,13 +37,14 @@ describe('application launch', () => {
   });
 });
 
-describe('importantDates-webpart div', () => {
-    it('should find importantDates-webpart div', () => {
+describe('validate basic structure', () => {
+    it('should find core structure of html', () => {
       const {enzymeWrapper, props} = setup()                 
       expect(enzymeWrapper.find('.importantDates-webpart').length).toBe(1);    
+      expect(enzymeWrapper.find('.importantDates-img').length).toBe(1);  
       expect(enzymeWrapper.find('.viewEvents').length).toBe(1);   
     });
 });    
-
+  
 
 
