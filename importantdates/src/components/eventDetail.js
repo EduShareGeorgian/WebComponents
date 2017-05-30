@@ -29,7 +29,6 @@ class eventDetail extends Component {
     }
 }
 
-//   user: state.activeUser
 function mapStateToProps(state) {
     return {
         activeDates: state.activeDates
