@@ -16,6 +16,7 @@ exports[`WithCamera 1`] = `
   <a
     className="mapLink"
     href="https://maps.google.ca/?q=Chartwells"
+    onClick={[Function]}
     target="_blank"
   >
     <div
@@ -69,6 +70,7 @@ exports[`WithoutCamera 1`] = `
   <a
     className="mapLink"
     href="https://maps.google.ca/?q=Chartwells"
+    onClick={[Function]}
     target="_blank"
   >
     <div

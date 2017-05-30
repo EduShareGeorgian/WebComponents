@@ -7,7 +7,7 @@ class PlaceOfInterestItem extends React.Component {
     return (
         <li className="placeOfInterestItem ms-Grid-row">
           <div className="ms-Grid-col ms-u-sm3"><a href={this.props.placeLink}>{this.props.name}</a></div>
-          <a target="_blank" href={this.props.mapLink} className="mapLink">
+          <a target="_blank" href={this.props.mapLink} className="mapLink" onClick={this.props.launchMap.bind(this)}>
             {this.props.hasCamera &&
               <div class="foodServicesHoursRestaurant ms-Grid-col ms-u-sm1">
                 <i class="ms-Icon ms-Icon--Camera" aria-hidden="true"></i>
@@ -22,10 +22,6 @@ class PlaceOfInterestItem extends React.Component {
           <div className="ms-Grid-col ms-u-sm5">{this.props.hoursDescription}</div>
         </li>)
   }
-
-}
-
-PlaceOfInterestItem.PropTypes = {
 
 }
 
