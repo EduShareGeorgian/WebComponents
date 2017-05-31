@@ -10,17 +10,6 @@ import {selectEvent} from './actions/selectEvent'
 import {localize} from 'react-localize-redux';
 import './App.css'
 
-/* test code - trying to implent this in the extended compoonent */
-const MyComponent = ({ translate }) => <div>{ translate('title') }</div>;
-const Greeting = ({ translate, currentLanguage }) => (
-  <div>
-    <h1>{ translate('greeting', { name: 'Ryan' }) }</h1>
-    <p>The current language is { `${ currentLanguage }` }</p>
-    <button>{ translate('farwell') }</button>
-  </div>
-);
-/* end of test code */
-
 class App extends Component {   
 constructor(props) {
     super(props);
@@ -38,16 +27,15 @@ constructor(props) {
 
 render() {
     return (       
-    <div className="importantDates-webpart">  
-        <p>The current language is </p>                            
+    <div className="importantDates-webpart">                                    
       <div className="Header App">
           <div className="importantDates-img">
-          <h2>Important Dates</h2>
+          <h2>{ this.props.translate('importantDates') }</h2>
           </div>
       </div>
         <div className="App">
           <Dropdown 
-              label='Select Type of Event'
+              label={ this.props.translate('selectEvent') }
               id='importantDates'
               class="ms-Dropdown-select"
               options = {this.props.events}
@@ -78,8 +66,7 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({selectEvent: selectEvent}, dispatch);
 }
 
-export default localize() (connect(mapStateToProps, matchDispatchToProps)(App));
+export default localize()(connect(mapStateToProps, matchDispatchToProps)(App)) ;
 
-//localize(translations)
 export {App};
 

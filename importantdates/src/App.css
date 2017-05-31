@@ -37,12 +37,12 @@ td {
   color: white;
 }
 
-.importnantDates-img{
+.importantDates-img{
   background-image: url('./Images/calendar.png');
   /*background-size: 30px;*/
 }
 
-.importnantDates-img h2{
+.importantDates-img h2{
    margin-left: 60px;
    font-weight: 100;
 }
