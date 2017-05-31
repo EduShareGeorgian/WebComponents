@@ -13,7 +13,16 @@ describe( "Place of Interest list component", () => {
     ];
     it ("should render itself with DetailList (simulated real DOM mount method)", () => {
       const fullyRenderedWrapper = mount(<PlaceOfInterestList items={items()}/>)
-      expect(fullyRenderedWrapper.containsMatchingElement(<div><DetailsList></DetailsList></div>)).toBe(true)
+      console.log(fullyRenderedWrapper.debug())
+      expect(fullyRenderedWrapper.containsMatchingElement(<div><DetailsList items={items()}></DetailsList></div>)).toBe(true)
+    })
+    it ("should provide the items to the DetailsList", () => {
+      const shallowRenderedWrapper = shallow(<PlaceOfInterestList items={items()}/>)
+      console.log(shallowRenderedWrapper.debug())
+      // Important: The Office Fabric DetailsList acutally renders a WithViewportComponent node NOT a DetailsList node!!!
+      const detailsList = shallowRenderedWrapper.find('WithViewportComponent').first()
+      console.log(detailsList.debug())
+      expect(detailsList.props().items).toEqual(items())
     })
   })
   describe( "without items", () => {
