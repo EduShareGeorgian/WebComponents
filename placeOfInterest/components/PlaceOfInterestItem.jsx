@@ -13,7 +13,7 @@ class PlaceOfInterestItem extends React.Component {
                 <i class="ms-Icon ms-Icon--Camera" aria-hidden="true"></i>
               </div>
             }
-            <div className="ms-Grid-col ms-u-sm1">&nbsp;</div>
+            <div className="ms-Grid-col ms-u-sm1" aria-hidden="true">&nbsp;</div>
             <div className="ms-Grid-col ms-u-sm1">
               <i className="ms-Icon ms-Icon--POI" aria-hidden="true"></i>
             </div>

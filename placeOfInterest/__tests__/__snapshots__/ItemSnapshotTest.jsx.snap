@@ -28,6 +28,7 @@ exports[`WithCamera 1`] = `
       />
     </div>
     <div
+      aria-hidden="true"
       className="ms-Grid-col ms-u-sm1"
     >
        
@@ -74,6 +75,7 @@ exports[`WithoutCamera 1`] = `
     target="_blank"
   >
     <div
+      aria-hidden="true"
       className="ms-Grid-col ms-u-sm1"
     >
        
