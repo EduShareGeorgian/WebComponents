@@ -1,6 +1,5 @@
 
 import CurrentEventApi from '../api/selectEventApi'
-import jquery from 'jquery'
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 var xml2js = require('xml2js');
@@ -24,15 +23,14 @@ const fetchPosts = event => dispatch => {
   var events = []
   return fetch(`http://localhost:3000/rss.xml`)
     .then(response => response.text())
-    .then(xmlString => jquery.parseXML(xmlString))
     .then(data => {
-        parser.parseString(data.documentElement.outerHTML,function (err, result) {
+        parser.parseString(data,function (err, result) {
         if(err){            
            
         }
         else{
             var items = result.rss.channel.item;
-            jquery.each(items, function( index, item ) {
+            items.forEach(function( index, item ) {
                 var a = moment(item.pubDate); 
                 events.push({"description":item.title, "date": a.format('l')})
             });
