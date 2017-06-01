@@ -3,6 +3,7 @@ import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown';
 import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import {connect} from 'react-redux';
 import EventDetail from './components/eventDetail'
+import EventType from './components/eventType'
 import CurrentEventApi from './api/selectEventApi'
 import thunk from 'redux-thunk'
 import {bindActionCreators} from 'redux';
@@ -33,6 +34,10 @@ render() {
           <h2>{ this.props.translate('importantDates') }</h2>
           </div>
       </div>
+       <div className="App">
+          <EventType events = {this.props.events}/>
+        </div>
+        
         <div className="App">
           <Dropdown 
               label={ this.props.translate('selectEvent') }

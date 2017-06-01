@@ -21,7 +21,7 @@ class eventType extends Component {
               id='importantDates'
               class="ms-Dropdown-select"
               options = {this.props.events}
-              onChanged = {this.props.selectEvent.bind(this)}  
+             // onChanged = {this.props.selectEvent.bind(this)}  
               defaultSelectedKey= {this.state.importantDateDefaultKey}          
           />
         );
