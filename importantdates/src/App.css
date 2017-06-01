@@ -1,0 +1,76 @@
+.App {
+  text-align: center;
+}
+
+
+.importantDates-webpart{
+  border: 1px solid #eaeaea;
+  width: 430px;height: 450px
+
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 20px;
+  width:400px;
+  max-height: 400px;
+}
+
+td {
+    border: 1px solid black;
+    height: 10px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.viewEvents{
+  margin-top: 20px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.importantDates-img{
+  background-image: url('./Images/calendar.png');
+  /*background-size: 30px;*/
+}
+
+.importantDates-img h2{
+   margin-left: 60px;
+   font-weight: 100;
+}
+.importantDatesSeparator {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: thin solid #eaeaea;
+}
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+ 
+}
+
+
+.App{
+  width: 400px;
+  text-align: left;
+  margin-left:20px;
+}
