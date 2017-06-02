@@ -20,11 +20,11 @@ exports[`WithCamera 1`] = `
     target="_blank"
   >
     <div
-      class="foodServicesHoursRestaurant ms-Grid-col ms-u-sm1"
+      className="ms-Grid-col ms-u-sm1"
     >
       <i
         aria-hidden="true"
-        class="ms-Icon ms-Icon--Camera"
+        className="ms-Icon ms-Icon--Camera"
       />
     </div>
     <div

@@ -2,6 +2,7 @@
   "name": "placeOfInterestWebComponent",
   "version": "0.0.1",
   "devDependencies": {
+    "@types/react": "^15.0.25",
     "babel-cli": "^6.24.1",
     "babel-jest": "^20.0.3",
     "babel-preset-es2015": "^6.24.1",

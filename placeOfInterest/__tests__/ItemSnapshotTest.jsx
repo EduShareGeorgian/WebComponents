@@ -8,8 +8,8 @@ describe('components', () => {
     const defaultProps = () => {
       return {
         name: "Chartwells",
-        placeLink: "https://subway.com/home",
-        mapLink: "https://maps.google.ca/?q=Chartwells",
+        placeLink: new URL("https://subway.com/home"),
+        mapLink: new URL("https://maps.google.ca/?q=Chartwells"),
         locationId: "E109",
         hoursDescription: "7:30am - 2:00pm",
         hasCamera: false,

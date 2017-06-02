@@ -7,8 +7,8 @@ import {default as toJson, shallowToJson} from 'enzyme-to-json'
 function setup() {
   const props = {
     name: "Chartwells",
-    placeLink: "https://subway.com/home",
-    mapLink: "https://maps.google.ca/?q=Chartwells",
+    placeLink: new URL("https://subway.com/home"),
+    mapLink: new URL("https://maps.google.ca/?q=Chartwells"),
     locationId: "E109",
     hoursDescription: "7:30am - 2:30pm",
     launchMap: jest.fn(),
@@ -73,7 +73,7 @@ describe('components', () => {
       const placeLink = placeElement.childAt(0)
       expect(placeLink.type()).toBe('a')
       expect(placeLink.text()).toEqual(props.name)
-      expect(placeLink.props().href).toBe(props.placeLink)
+      expect(placeLink.props().href).toBe(props.placeLink.href)
     })
     it('Style #1: should render self with second child being a nicely formatted map link', () => {
       const {enzymeWrapper, props} = setup()
@@ -89,14 +89,14 @@ describe('components', () => {
       const placeLink = placeElement.childAt(0)
       expect(placeLink.type()).toBe('a')
       expect(placeLink.text()).toEqual(props.name)
-      expect(placeLink.props().href).toBe(props.placeLink)
+      expect(placeLink.props().href).toBe(props.placeLink.href)
 
       //mapLink
       const mapLink = element.childAt(1)
       expect(mapLink.children().length).toBe(3)
 
       expect(mapLink.type()).toBe('a')
-      expect(mapLink.props().href).toEqual(props.mapLink)
+      expect(mapLink.props().href).toEqual(props.mapLink.href)
       expect(mapLink.props().target).toEqual("_blank")
       expect(mapLink).toHaveClass('mapLink')
 
@@ -142,7 +142,7 @@ describe('components', () => {
       )).toBe(true)
       expect(mapLink.containsMatchingElement(
           <a target="_blank" className="mapLink"
-             href={props.mapLink}>
+             href={props.mapLink.href}>
             <div className="ms-Grid-col ms-u-sm1">&nbsp;</div>
             <div className="ms-Grid-col ms-u-sm1">
               <i className="ms-Icon ms-Icon--POI" aria-hidden="true"></i>
