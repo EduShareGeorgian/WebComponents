@@ -10,20 +10,23 @@
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "jasmine": "^2.6.0",
-    "jasmine-react-matchers": "^1.0.2",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
+    "react" : "^15.5.4",
+    "react-dom" : "^15.5.4",
     "react-test-renderer": "^15.5.4",
-    "typescript": "^2.3.3"
+    "typescript": "^2.3.3",
+    "webpack": "^2.6.1"
   },
   "scripts": {
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "jest --watch",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch",
+    "build" : "webpack --config webpack.config.js --progress --profile --colors"
   },
   "dependencies": {
-    "office-ui-fabric-react": "^2.34.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "office-ui-fabric-react": "^2.34.2"
   },
   "babel": {
     "plugins": [
