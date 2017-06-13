@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer"
 import React from "react"
-import PlaceOfInterestList from "../components/PlaceOfInterestList";
+import PlaceOfInterestList from "PlaceOfInterestList";
 import {shallow, mount} from "enzyme"
 import {DetailsList} from "office-ui-fabric-react"
 

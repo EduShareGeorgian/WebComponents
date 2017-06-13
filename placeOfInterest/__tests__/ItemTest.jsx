@@ -1,6 +1,6 @@
 import React from 'react'
 import {shallow, ShallowWrapper} from 'enzyme'
-import {PlaceOfInterestItem} from '../components/PlaceOfInterestItem'
+import {PlaceOfInterestItem} from 'PlaceOfInterestItem'
 import {default as toJson, shallowToJson} from 'enzyme-to-json'
 
 

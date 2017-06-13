@@ -1,0 +1,23 @@
+{
+  "name": "my-new-widget",
+  "version": "1.0.0",
+  "description": "My new widget.",
+  "main": " ",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduShareGeorgian/WebComponents.git"
+  },
+  "keywords": [
+    "react",
+    "component"
+  ],
+  "author": "Todd Hiles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EduShareGeorgian/WebComponents/issues"
+  },
+  "homepage": "https://github.com/EduShareGeorgian/WebComponents#readme"
+}

@@ -22,7 +22,7 @@
     "webpack": "^2.6.1"
   },
   "scripts": {
-    "test": "jest",
+    "test": "tsc && jest",
     "test:watch": "jest --watch",
     "compile": "tsc",
     "compile:watch": "tsc --watch",
@@ -39,5 +39,8 @@
       "es2015",
       "react"
     ]
+  },
+  "jest" : {
+    "modulePaths" : ["<rootDir>", "<rootDir>/dist"]
   }
 }
