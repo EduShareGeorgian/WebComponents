@@ -1,1 +1,1 @@
-require ("./components/PlaceOfInterestList");
+require("./components/PlaceOfInterestList");

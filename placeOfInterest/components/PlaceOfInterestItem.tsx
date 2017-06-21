@@ -1,16 +1,24 @@
 import * as React from 'react';
-import {IPlaceOfInterestItemProps} from './IPlaceOfInterestItemProps'
+import { IPlaceOfInterestItemProps } from './IPlaceOfInterestItemProps'
 
 class PlaceOfInterestItem extends React.Component<IPlaceOfInterestItemProps, any> {
   constructor(props:IPlaceOfInterestItemProps) {
     super(props);
+    this._onMapLinkClick = this._onMapLinkClick.bind(this);
   }
-
+  protected _onMapLinkClick(event:React.MouseEvent<HTMLElement>) {
+      event.preventDefault();
+      event.stopPropagation();
+      let { onMapLinkSelected } = this.props;
+      if ( onMapLinkSelected ) {
+          onMapLinkSelected(this.props.mapLink);
+      }
+  }
   public render() {
     return (
         <li className="placeOfInterestItem ms-Grid-row">
-          <div className="ms-Grid-col ms-u-sm3"><a href={this.props.placeLink.href}>{this.props.name}</a></div>
-          <a target="_blank" href={this.props.mapLink.href} className="mapLink" onClick={this.props.launchMap.bind(this)}>
+          <div className="ms-Grid-col ms-u-sm3"><a href={this.props.detailsLink.href}>{this.props.name}</a></div>
+          <a target="_blank" href={this.props.mapLink.href} className="mapLink" onClick={this._onMapLinkClick}>
             {this.props.hasCamera &&
               <div className="ms-Grid-col ms-u-sm1">
                 <i className="ms-Icon ms-Icon--Camera" aria-hidden="true"></i>
@@ -28,4 +36,4 @@ class PlaceOfInterestItem extends React.Component<IPlaceOfInterestItemProps, any
 
 }
 
-export {PlaceOfInterestItem}
+export { PlaceOfInterestItem, IPlaceOfInterestItemProps }

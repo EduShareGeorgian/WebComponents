@@ -1,8 +1,8 @@
 import renderer from "react-test-renderer"
 import React from "react"
-import PlaceOfInterestList from "PlaceOfInterestList";
-import {shallow, mount} from "enzyme"
-import {DetailsList} from "office-ui-fabric-react"
+import { PlaceOfInterestList } from "../dist/PlaceOfInterestList";
+import { shallow, mount } from "enzyme"
+import { DetailsList } from "office-ui-fabric-react"
 
 describe( "Place of Interest list component", () => {
 

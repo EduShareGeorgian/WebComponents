@@ -1,19 +1,19 @@
 import React from 'react'
-import {shallow, ShallowWrapper} from 'enzyme'
-import {PlaceOfInterestItem} from 'PlaceOfInterestItem'
-import {default as toJson, shallowToJson} from 'enzyme-to-json'
+import { shallow, ShallowWrapper } from 'enzyme'
+import { PlaceOfInterestItem } from '../dist/PlaceOfInterestItem'
+import { default as toJson, shallowToJson } from 'enzyme-to-json'
 
 
 function setup() {
   const props = {
     name: "Chartwells",
-    placeLink: new URL("https://subway.com/home"),
+    detailsLink: new URL("https://subway.com/home"),
     mapLink: new URL("https://maps.google.ca/?q=Chartwells"),
     locationId: "E109",
     hoursDescription: "7:30am - 2:30pm",
-    launchMap: jest.fn(),
-    launchPlaceDetails: jest.fn(),
-    launchCameraView: jest.fn()
+    onMapLinkSelected: jest.fn(),
+    onDetailsLinkSelected: jest.fn(),
+    onCameraLinkSelected: jest.fn()
   }
 
   const enzymeWrapper = shallow(<PlaceOfInterestItem {...props} />)
@@ -73,7 +73,7 @@ describe('components', () => {
       const placeLink = placeElement.childAt(0)
       expect(placeLink.type()).toBe('a')
       expect(placeLink.text()).toEqual(props.name)
-      expect(placeLink.props().href).toBe(props.placeLink.href)
+      expect(placeLink.props().href).toBe(props.detailsLink.href)
     })
     it('Style #1: should render self with second child being a nicely formatted map link', () => {
       const {enzymeWrapper, props} = setup()
@@ -89,7 +89,7 @@ describe('components', () => {
       const placeLink = placeElement.childAt(0)
       expect(placeLink.type()).toBe('a')
       expect(placeLink.text()).toEqual(props.name)
-      expect(placeLink.props().href).toBe(props.placeLink.href)
+      expect(placeLink.props().href).toBe(props.detailsLink.href)
 
       //mapLink
       const mapLink = element.childAt(1)
@@ -155,8 +155,11 @@ describe('components', () => {
       const {enzymeWrapper, props} = setup()
       const element = enzymeWrapper.find('li')
       const mapLink = element.childAt(1)
-      mapLink.simulate('click')
-      expect(props.launchMap.mock.calls.length).toBe(1)
+      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() };
+      mapLink.simulate('click', eventSpy)
+      expect(eventSpy.preventDefault).toBeCalled()
+      expect(eventSpy.stopPropagation).toBeCalled()
+      expect(props.onMapLinkSelected).toBeCalled()
     })
   })
 })
