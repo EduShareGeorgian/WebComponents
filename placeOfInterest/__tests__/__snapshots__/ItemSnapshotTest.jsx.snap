@@ -8,7 +8,9 @@ exports[`WithCamera 1`] = `
     className="ms-Grid-col ms-u-sm3"
   >
     <a
+      className="detailsLink"
       href="https://subway.com/home"
+      onClick={[Function]}
     >
       Chartwells
     </a>
@@ -63,7 +65,9 @@ exports[`WithoutCamera 1`] = `
     className="ms-Grid-col ms-u-sm3"
   >
     <a
+      className="detailsLink"
       href="https://subway.com/home"
+      onClick={[Function]}
     >
       Chartwells
     </a>

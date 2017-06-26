@@ -1,6 +1,6 @@
 {
   "name": "react-place-of-interest",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "dist/PlaceOfInterestList.js",
   "types": "dist/PlaceOfInterestList.d.js",
   "devDependencies": {
@@ -17,6 +17,7 @@
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
     "source-map-loader": "^0.2.1",
@@ -30,7 +31,7 @@
     "compile": "tsc",
     "compile:watch": "tsc --watch",
     "build": "webpack --config webpack.config.js --progress --profile --colors",
-    "build:prod": "webpack --config webpack.config.js --progress --profile --colors -p" 
+    "build:prod": "webpack --config webpack.config.js --progress --profile --colors -p"
   },
   "dependencies": {
     "office-ui-fabric-react": "^2.34.2"

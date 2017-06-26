@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, ShallowWrapper } from 'enzyme'
-import { PlaceOfInterestItem } from '../dist/PlaceOfInterestItem'
+import { PlaceOfInterestItem } from 'PlaceOfInterestItem'
 import { default as toJson, shallowToJson } from 'enzyme-to-json'
 
 
@@ -151,15 +151,55 @@ describe('components', () => {
           </a>)).toBe(true)
     })
 
-    it('should call launchMap when the mapLink is clicked', () => {
+    it('should call onMapLinkSelected callback when the mapLink is clicked', () => {
       const {enzymeWrapper, props} = setup()
-      const element = enzymeWrapper.find('li')
-      const mapLink = element.childAt(1)
-      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() };
+      const mapLink = enzymeWrapper.find('.mapLink')
+      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() }
       mapLink.simulate('click', eventSpy)
       expect(eventSpy.preventDefault).toBeCalled()
       expect(eventSpy.stopPropagation).toBeCalled()
       expect(props.onMapLinkSelected).toBeCalled()
+      expect(props.onMapLinkSelected.mock.calls[0][0]).toBe(props.mapLink)
+    })
+
+    it('should NOT call onMapLinkSelected when mapLink is undefined', () => {
+      const { props } = setup()
+      // Override mapLink
+      const newProps = Object.assign({}, props, {mapLink: null})
+      const enzymeWrapper = shallow(<PlaceOfInterestItem {...newProps} />)
+
+      const mapLink = enzymeWrapper.find('.mapLink')
+      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() }
+      mapLink.simulate('click', eventSpy)
+      expect(eventSpy.preventDefault).toBeCalled()
+      expect(eventSpy.stopPropagation).toBeCalled()
+      expect(newProps.onMapLinkSelected).not.toBeCalled()
+    })
+
+    it('should call onDetailsLinkSelected callback when the detailsLink is clicked', () => {
+      const {enzymeWrapper, props} = setup()
+      const detailsLink = enzymeWrapper.find('.detailsLink')
+      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() }
+      detailsLink.simulate('click', eventSpy)
+      expect(eventSpy.preventDefault).toBeCalled()
+      expect(eventSpy.stopPropagation).toBeCalled()
+      expect(props.onDetailsLinkSelected).toBeCalled()
+      expect(props.onDetailsLinkSelected.mock.calls[0][0]).toBe(props.detailsLink)
+    })
+
+    it('should NOT call onDetailsLinkSelected when detailsLink is undefined', () => {
+      const { props } = setup()
+      // Override DetailsLink
+      const newProps = Object.assign({}, props, {detailsLink: null})
+      const enzymeWrapper = shallow(<PlaceOfInterestItem {...newProps} />)
+
+      const element = enzymeWrapper.find('li')
+      const detailsLink = element.childAt(1)
+      const eventSpy = { preventDefault: jest.fn(), stopPropagation: jest.fn() };
+      detailsLink.simulate('click', eventSpy)
+      expect(eventSpy.preventDefault).toBeCalled()
+      expect(eventSpy.stopPropagation).toBeCalled()
+      expect(newProps.onDetailsLinkSelected).not.toBeCalled()
     })
   })
 })
