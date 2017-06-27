@@ -1,17 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
 
-const componentName = "PlaceOfInterestList";
+const componentName = "PlaceOfInterestComponent";
 
 module.exports = env => {
     console.log(env);
     const config = {
-        entry: './index.js',
+        entry: './components/index.js',
         output: {
             path: __dirname + "/dist",
             filename: componentName + ".js",
             library: componentName,
-            libraryTarget: 'umd',
+            libraryTarget: 'commonjs',
             publicPath: '/components/'
         },
         // Enable sourcemaps for debugging webpack's output.

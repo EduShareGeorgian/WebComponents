@@ -4,7 +4,7 @@ import {PlaceOfInterestItem} from "./PlaceOfInterestItem";
 import {IPlaceOfInterestItemProps} from './IPlaceOfInterestItemProps'
 import {IPlaceOfInterestListProps} from "./IPlaceOfInterestListProps";
 
-class PlaceOfInterestList extends React.Component<IPlaceOfInterestListProps, void> {
+export default class PlaceOfInterestList extends React.Component<IPlaceOfInterestListProps, void> {
   constructor(props:IPlaceOfInterestListProps){
     super(props)
   }

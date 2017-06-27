@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {IPlaceOfInterestItemProps} from './IPlaceOfInterestItemProps'
 
-class PlaceOfInterestItem extends React.Component<IPlaceOfInterestItemProps, any> {
+export default class PlaceOfInterestItem extends React.Component<IPlaceOfInterestItemProps, any> {
     constructor(props: IPlaceOfInterestItemProps) {
         super(props);
         this._onMapLinkClick = this._onMapLinkClick.bind(this);

@@ -1,8 +1,8 @@
 {
   "name": "react-place-of-interest",
-  "version": "0.0.7",
-  "main": "dist/PlaceOfInterestList.js",
-  "types": "dist/PlaceOfInterestList.d.js",
+  "version": "0.0.11",
+  "main": "dist/PlaceOfInterestComponent.js",
+  "types": "components/index.d.ts",
   "devDependencies": {
     "@types/react": "^15.0.25",
     "awesome-typescript-loader": "^3.1.3",
