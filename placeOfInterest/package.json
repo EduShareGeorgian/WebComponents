@@ -1,6 +1,6 @@
 {
   "name": "react-place-of-interest",
-  "version": "0.0.11",
+  "version": "0.0.15",
   "main": "dist/PlaceOfInterestComponent.js",
   "types": "components/index.d.ts",
   "devDependencies": {
@@ -16,9 +16,7 @@
     "jasmine": "^2.6.0",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "react": "^15.5.4",
     "react-addons-test-utils": "^15.6.0",
-    "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
     "source-map-loader": "^0.2.1",
     "typescript": "^2.3.3",
@@ -34,6 +32,8 @@
     "build:prod": "webpack --config webpack.config.js --progress --profile --colors -p"
   },
   "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "office-ui-fabric-react": "^2.34.2"
   },
   "babel": {

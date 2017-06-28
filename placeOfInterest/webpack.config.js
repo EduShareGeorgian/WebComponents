@@ -6,7 +6,7 @@ const componentName = "PlaceOfInterestComponent";
 module.exports = env => {
     console.log(env);
     const config = {
-        entry: './components/index.js',
+        entry: './components/index.ts',
         output: {
             path: __dirname + "/dist",
             filename: componentName + ".js",
@@ -52,8 +52,8 @@ module.exports = env => {
         // dependencies, which allows browsers to cache those libraries between builds.
         // See https://unpkg.com/#/ for React CDN hosting.
         externals: {
-            "react": "React",
-            "react-dom": "ReactDOM"
+            // "react": "React",
+            // "react-dom": "ReactDOM"
         }
     };
     return config;
