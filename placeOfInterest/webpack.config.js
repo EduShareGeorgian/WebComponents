@@ -1,18 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
 
-const componentName = "PlaceOfInterestComponent";
-
+const libraryName = "PlaceOfInterest";
 module.exports = env => {
     console.log(env);
     const config = {
+        // see https://stackoverflow.com/questions/37912857/exporting-a-class-with-webpack-and-babel-not-working
         entry: './components/index.ts',
         output: {
+            filename: libraryName + ".bundle.js",
             path: __dirname + "/dist",
-            filename: componentName + ".js",
-            library: componentName,
-            libraryTarget: 'commonjs',
-            publicPath: '/components/'
+            library: libraryName,
+            libraryTarget: "commonjs"
         },
         // Enable sourcemaps for debugging webpack's output.
         devtool: "source-map",
@@ -24,12 +23,12 @@ module.exports = env => {
         module: {
             // Important: The Loader Pipeline processing order is reverse of this list.  The first loader to process an input file is the last loader in this list.
             loaders: [
-                // // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-                // {
-                //     enforce: "pre",
-                //     test: /\.js$/,
-                //     loader: "source-map-loader"
-                // },
+                // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+                {
+                    enforce: "pre",
+                    test: /\.js$/,
+                    loader: "source-map-loader"
+                },
                 {
                     test: /.[tj]sx?$/,
                     loader: 'babel-loader',
