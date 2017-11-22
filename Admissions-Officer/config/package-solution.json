@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Admissions Dashboard",
+    "id": "fc057939-b38b-4ca3-9618-35248f0b33e2",
+    "version": "1.0.0.4",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/admissions-dashboard.sppkg"
+  }
+}

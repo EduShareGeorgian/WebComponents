@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "admissions-officer-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/admissionsOfficer/AdmissionsOfficerWebPart.js",
+          "manifest": "./src/webparts/admissionsOfficer/AdmissionsOfficerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AdmissionsOfficerWebPartStrings": "lib/webparts/admissionsOfficer/loc/{locale}.js"
+  }
+}

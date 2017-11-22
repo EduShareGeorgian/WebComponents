@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.2.0",
+    "libraryName": "admissions-officer",
+    "libraryId": "fc057939-b38b-4ca3-9618-35248f0b33e2",
+    "environment": "spo"
+  }
+}
