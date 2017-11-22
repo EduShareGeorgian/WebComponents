@@ -1,0 +1,119 @@
+@media screen and (min-width: 769px) {
+	#sideNavBox{
+	display: none !important;
+	}
+	#contentBox {
+	margin-left: 0 !important;
+	}
+}
+.dashboardWidget {
+	border: 1px solid #efefef;
+	box-shadow: 2px 2px 5px #888888;
+	margin: 10px;
+}
+.dashboardWidget .ms-webpart-chrome-title {
+	margin-left: 15px;
+}
+
+.checkedBoxOffer
+{
+	position: relative !important;
+    top: -50px !important;
+	left: 20px
+}
+
+.infoPanel {
+	background-color: #00778b;
+	color: white;
+	border: 1px solid #00778b;
+	padding-left: 15px;	
+	padding-right: 15px;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.infoPanel a {
+	color: white;
+	text-decoration: none;
+}
+.infoPanel h2 {
+	font-size: 1.46em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: white;
+}
+
+.infoPanel .bigAmount {
+	font-size: 2.5em;
+	font-weight: 700;
+	text-align: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.infoPanel .footer {
+	font-size: .9em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.infoPanelWhite h2 {
+	color: #00778b;
+}
+.infoPanelWhite a {
+	color: #00778b;
+}
+
+.infoPanelBlue {
+	background-color: #004b87;
+	color: white;
+	border: 1px solid #004b87;
+}
+.infoPanelTeal {
+	background-color: #00778b;
+	color: white;
+	border: 1px solid #00778b;
+}
+.infoPanelWhite {
+	background-color: white;
+	color: #00778b;
+	border: 1px solid #ffffff;
+}
+.infoPanelCentre {
+	text-align: center;
+}
+.infoPanelSquare {
+	height: 150px;
+	width: 150px;
+}
+.infoPanelSquare .bigAmount {
+	font-size: 4.1em;
+	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.infoPanel .buttonText {
+	font-size: 1.3em;
+	font-weight: 400;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+.infoPanelSquare h2 {
+	font-size: 1.3em;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.infoPanelSquare .footer {
+	font-size: .8em;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.infoPanel img.infoIcon {
+	float: right;
+	width: 16px;
+	height: 16px;
+	padding-right: 10px;
+}
+.infoPanelButton {
+    cursor: pointer;
+    width:100%;
+    height:50px !important;
+}

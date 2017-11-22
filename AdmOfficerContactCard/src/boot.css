@@ -1,0 +1,71 @@
+/* Personal for Contact info */
+div.Persona-details {
+	/* padding-left: 50px !important; */
+	width: 250px;
+}
+
+div.PersonaCard-persona {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+	
+	border: 1px solid #ffffff;
+	color: #00778b;
+    background-color: white;
+    padding-top:10px !important;
+
+	}
+	
+div.Persona {
+    font-family: Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica 
+
+Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    width: 100%;
+    height: 48px;
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    min-width: 290px;
+    
+}
+
+div.PersonaCard-persona a {
+	color: #00778b;
+	text-decoration: none;
+}
+div.PersonaCard-persona h2 {
+	font-size: 1.46em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #00778b;
+}
+.Persona-primaryText {
+    color: #333;
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: -3px;
+    line-height: 1.4;
+}
+
+.Persona-optionalText, .Persona-secondaryText, .Persona-tertiaryText {
+    color: #666;
+    font-weight: 400;
+    font-size: 12px;
+    white-space: nowrap;
+    line-height: 1.3;
+}
+
+.disableDivButton{
+
+cursor: not-allowed;
+background-color:grey;
+}

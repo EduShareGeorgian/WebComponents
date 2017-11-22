@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Admissions Officer Contact Card",
+    "id": "6a34c6fe-464d-4977-99ad-25b742ea0294",
+    "version": "1.0.0.1",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/admissions-officer-contact-card.sppkg"
+  }
+}

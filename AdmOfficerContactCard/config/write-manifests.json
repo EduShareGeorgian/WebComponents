@@ -1,0 +1,6 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/write-manifests.schema.json",
+  //"cdnBasePath": "<!-- PATH TO CDN -->"
+  // "cdnBasePath": "https://georgiancollege.sharepoint.com/CDN/webparts/AdmissionsOfficerContactCard",
+  "cdnBasePath": "https://publiccdn.sharepointonline.com/georgiancollege.sharepoint.com/129000429186f6fa6a7261d5ec7f5f566a1896d112808ad3538e1cb68cf8962424f6c015/webparts/AdmissionsOfficerContactCard"
+}
