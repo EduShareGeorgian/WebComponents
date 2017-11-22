@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "academic-dashboard-apps-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/academicDashboardApps/AcademicDashboardAppsWebPart.js",
+          "manifest": "./src/webparts/academicDashboardApps/AcademicDashboardAppsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AcademicDashboardAppsWebPartStrings": "lib/webparts/academicDashboardApps/loc/{locale}.js"
+  }
+}

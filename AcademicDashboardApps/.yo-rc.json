@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.2.0",
+    "libraryName": "academic-dashboard-apps",
+    "libraryId": "f9831cb7-796c-4e25-91d1-3b478a538833",
+    "environment": "spo"
+  }
+}
