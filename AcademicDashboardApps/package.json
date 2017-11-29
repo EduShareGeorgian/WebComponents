@@ -23,10 +23,10 @@
     "@uifabric/example-app-base": "^5.1.2",
     "font-awesome": "^4.7.0",
     "npm-shrinkwrap": "^6.1.0",
-    "office-ui-fabric-react": "^5.24.2",
+    "office-ui-fabric-react": "5.24.2",
     "pivotal-ui": "^10.3.2",
     "react": "15.4.2",
-    
+
     "react-dom": "15.4.2",
     "react-responsive-accordion": "^1.0.0"
   },
