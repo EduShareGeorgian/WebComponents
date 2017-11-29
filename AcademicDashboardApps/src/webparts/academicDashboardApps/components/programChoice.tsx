@@ -4,6 +4,11 @@ import * as ReactDOM from 'react-dom';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 import { Term } from "../utils/enums";
 import { Field } from "../utils/strColumns";
+import {
+    IButtonProps,
+    CompoundButton,
+    PrimaryButton
+  } from 'office-ui-fabric-react/lib/Button';
 
 require('collapsiblefile.scss');
 
@@ -136,8 +141,17 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                     </div>
 
                     <div className="program_action">
-                        <button className="actionbutton">
-                            Pay My Deposit</button>
+                    <CompoundButton
+                    data-automation-id='checkmystatusbutton'
+                    disabled={false}
+                    checked={false}
+                    text={"Check My Application Status"}
+                    href='https://georgiancollege.sharepoint.com/sites/go/Pages/BannerAppStatus.aspx'
+                    target='_blank'
+                    className="clsActionButton">
+                    
+                    
+                </CompoundButton>
                     </div>
                 </div>
 

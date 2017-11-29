@@ -6,14 +6,14 @@ import { escape } from '@microsoft/sp-lodash-subset';
 //import Collapsible from 'react-collapsible';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 
-import { BaseCollapse, AltCollapse, Collapse } from 'pivotal-ui/react/collapse';
+//import { BaseCollapse, AltCollapse, Collapse } from 'pivotal-ui/react/collapse';
 import {
   GroupedList,
   IGroup,
   IGroupDividerProps
 } from 'office-ui-fabric-react/lib/components/GroupedList/index';
 import { IColumn, IDetailsRowProps, IDetailsRowCheckProps } from 'office-ui-fabric-react/lib/DetailsList';
-import { DetailsRow } from 'office-ui-fabric-react/lib/components/DetailsList/DetailsRow';
+//import { DetailsRow } from 'office-ui-fabric-react/lib/components/DetailsList/DetailsRow';
 import {
   FocusZone
 } from 'office-ui-fabric-react/lib/FocusZone';
@@ -23,17 +23,12 @@ import {
   SelectionZone
 } from 'office-ui-fabric-react/lib/utilities/selection/index';
 
-import {
-  createListItems,
-  createGroups
-} from '@uifabric/example-app-base';
-import {
-  IButtonProps,
-  CompoundButton,
-  PrimaryButton
-} from 'office-ui-fabric-react/lib/Button';
-import { Term } from "../utils/enums";
-import { Field } from "../utils/strColumns";
+// import {
+//   createListItems,
+//   createGroups
+// } from '@uifabric/example-app-base';
+
+
 import { MessageBar} from 'office-ui-fabric-react/lib/MessageBar';
 
 
@@ -157,7 +152,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
           count: item._embedded.programChoices.length,
           key: item.applicationNumber,
           level: 0,
-          name: "Application #: " + item.applicationNumber + "-" + item.year,
+          name: "Application: " + item.applicationNumber + "-" + item.year,
           startIndex: calcStartIndex(item, index),
           isCollapsed: true
         })));
@@ -247,7 +242,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
         </AltCollapse> */}
 
 
-        {/* <FocusZone> */}
+        <FocusZone>
           {/* <SelectionZone
           selection={ this._selection }
           selectionMode={ SelectionMode.multiple }
@@ -259,12 +254,13 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
             selection={this._selection}
             selectionMode={SelectionMode.multiple}
             groups={_groups}
+            
 
 
           />
          
           {/* </SelectionZone> */}
-        {/* </FocusZone> */}
+        </FocusZone>
 
       </div>
     );
