@@ -1,17 +1,18 @@
 import * as React from 'react';
 import styles from './AcademicDashboardApps.module.scss';
+import ProgramChoice from './programChoice';
 import { IAcademicDashboardAppsProps } from './IAcademicDashboardAppsProps';
 import { escape } from '@microsoft/sp-lodash-subset';
-import Collapsible from 'react-collapsible';
+//import Collapsible from 'react-collapsible';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
-require('collapsiblefile.scss');
+
 import { BaseCollapse, AltCollapse, Collapse } from 'pivotal-ui/react/collapse';
 import {
   GroupedList,
   IGroup,
   IGroupDividerProps
 } from 'office-ui-fabric-react/lib/components/GroupedList/index';
-import { DetailsList, IColumn, IDetailsRowProps, IDetailsRowCheckProps } from 'office-ui-fabric-react/lib/DetailsList';
+import { IColumn, IDetailsRowProps, IDetailsRowCheckProps } from 'office-ui-fabric-react/lib/DetailsList';
 import { DetailsRow } from 'office-ui-fabric-react/lib/components/DetailsList/DetailsRow';
 import {
   FocusZone
@@ -33,11 +34,6 @@ import {
 } from 'office-ui-fabric-react/lib/Button';
 import { Term } from "../utils/enums";
 import { Field } from "../utils/strColumns";
-
-
-
-
-
 
 
 
@@ -80,7 +76,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
     };
 
     this._onRenderCell = this._onRenderCell.bind(this);
-    this._onRenderCheck = this._onRenderCheck.bind(this);
+    //this.onRenderItemColumn = this._onRenderCheck.bind(this);
     this._selection = new Selection;
   }
 
@@ -162,7 +158,8 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
           key: item.applicationNumber,
           level: 0,
           name: "Application #: " + item.applicationNumber + "-" + item.year,
-          startIndex: calcStartIndex(item, index)
+          startIndex: calcStartIndex(item, index),
+          isCollapsed: true
         })));
 
 
@@ -177,41 +174,41 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
       }
 
 
-      _columns = [
-        {
-          key: Field.programCode,
-          name: Field.programCode,
-          fieldName: Field.programCode,
-          maxWidth: 500,
-          minWidth: 500,
-          isMultiline: true
-        },
-        {
-          key: Field.programDesc,
-          name: Field.programDesc,
-          fieldName: Field.programDesc,
-          maxWidth: 500,
-          minWidth: 500,
-          isMultiline: true
-        },
-        {
-          key: Field.termCode,
-          name: Field.termCode,
-          fieldName: Field.termCode,
-          maxWidth: 500,
-          minWidth: 500,
-          isMultiline: true
-        },
-        {
-          key: Field.banAdmInd,
-          name: Field.banAdmInd,
-          fieldName: Field.banAdmInd,
-          maxWidth: 500,
-          minWidth: 500,
-          isMultiline: true
-        }
+      // _columns = [
+      //   {
+      //     key: Field.programCode,
+      //     name: Field.programCode,
+      //     fieldName: Field.programCode,
+      //     maxWidth: 500,
+      //     minWidth: 500,
+      //     isMultiline: true
+      //   },
+      //   {
+      //     key: Field.programDesc,
+      //     name: Field.programDesc,
+      //     fieldName: Field.programDesc,
+      //     maxWidth: 500,
+      //     minWidth: 500,
+      //     isMultiline: true
+      //   },
+      //   {
+      //     key: Field.termCode,
+      //     name: Field.termCode,
+      //     fieldName: Field.termCode,
+      //     maxWidth: 500,
+      //     minWidth: 500,
+      //     isMultiline: true
+      //   },
+      //   {
+      //     key: Field.banAdmInd,
+      //     name: Field.banAdmInd,
+      //     fieldName: Field.banAdmInd,
+      //     maxWidth: 500,
+      //     minWidth: 500,
+      //     isMultiline: true
+      //   }
 
-      ]
+      // ]
 
       self.setState({ academicStatusJson: result, Applications: applications, programChoices: programchoices });
     });
@@ -224,6 +221,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
 
     return (
       <div className={styles.academicDashboardApps}>
+        
         {/* <AltCollapse header="Application 16B9951 - 2015">
           <p>Content!</p>
           <p>Content!</p>
@@ -249,21 +247,24 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
         </AltCollapse> */}
 
 
-        <FocusZone>
+        {/* <FocusZone> */}
           {/* <SelectionZone
           selection={ this._selection }
           selectionMode={ SelectionMode.multiple }
         > */}
           <GroupedList
+
             items={_items}
             onRenderCell={this._onRenderCell}
             selection={this._selection}
             selectionMode={SelectionMode.multiple}
             groups={_groups}
-          />
 
+
+          />
+         
           {/* </SelectionZone> */}
-        </FocusZone>
+        {/* </FocusZone> */}
 
       </div>
     );
@@ -276,20 +277,22 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
   private _onRenderCell(nestingDepth: number, item: any, itemIndex: number) {
     let {
       _selection: selection
-    } = this;
+    } = this;    
+    
     return (
-
-      <DetailsRow
+      
+        
+      /* <DetailsRow
         columns={
           _columns
-          /* Object.keys(item).slice(0, 3).map((value): IColumn => {
+           Object.keys(item).slice(0, 3).map((value): IColumn => {
             return {
               key: value,
               name: value,
               fieldName: value,
               minWidth: 300
             };
-          }) */
+          }) 
         }
         groupNestingDepth={nestingDepth}
         item={item}
@@ -297,40 +300,45 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
         selection={selection}
         selectionMode={SelectionMode.multiple}
         onRenderItemColumn={this._onRenderCheck}
-      />
+      /> */  
+    
+      <ProgramChoice pchoice={item} />
 
     );
   }
 
 
-  private _onRenderCheck(item: any, index: number, column: IColumn) {
+  // private _onRenderCheck(item: any, index: number, column: IColumn) {
 
-    if (column.key === Field.banAdmInd) {
-      return (
-        <CompoundButton
-          href={"www.google.com"}
-          text={item[Field.oprgCode]}
-          disabled={false}
-          checked={true}
-          className='clsActionButton'
-          target="_blank"
-        ></CompoundButton>
+  //   if (column.key === Field.banAdmInd) {
+  //     return (
+  //       <div>
+  //       <CompoundButton
+  //         href={"www.google.com"}
+  //         text={item[Field.oprgCode]}
+  //         disabled={false}
+  //         checked={true}
+  //         className='clsActionButton'
+  //         target="_blank"
+  //         tabIndex={3}
+  //       />
+  //       <div>this is just test</div>
+  //       </div>
+  //     );
+  //   }
+  //   if (column.key === Field.termCode) {
+  //     var term = item[Field.termCode].substr(4, 1);
+  //     switch (term) {
 
-      );
-    }
-    if (column.key === Field.termCode) {
-      var term = item[Field.termCode].substr(4, 1);
-      switch (term) {
+  //       case Term.Fall.toString(): return ("Fall " + item[Field.termCode].substr(0, 4));
+  //       case Term.Winter.toString(): return ("Winter " + item[Field.termCode].substr(0, 4));
+  //       case Term.Summer.toString(): return ("Summer " + item[Field.termCode].substr(0, 4));
+  //       default: return ("None " + item[Field.termCode].substr(0, 4));
+  //     }
 
-        case Term.Fall.toString(): return ("Fall " + item[Field.termCode].substr(0, 4));
-        case Term.Winter.toString(): return ("Winter " + item[Field.termCode].substr(0, 4));
-        case Term.Summer.toString(): return ("Summer " + item[Field.termCode].substr(0, 4));
-        default: return ("None " + item[Field.termCode].substr(0, 4));
-      }
-
-    }
-    return item._transient.admissionSummary[column.key];
-  }
+  //   }
+  //   return item._transient.admissionSummary[column.key];
+  // }
 
 
 
