@@ -34,39 +34,60 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
 
     getDefaultProps() {
         return {
-            
+
             pchoice: ""
         };
     }
 
 
     getCampus(programchoice) {
-        return programchoice._transient.admissionSummary.campusDesc;
-
+        var campus = programchoice._transient.admissionSummary.campusDesc;
+        if (campus != "" && campus != null && campus != undefined) {
+        return campus;
+        }
+        return "N/A";
     }
 
 
     getSemester(programchoice) {
-        var term = programchoice.termCode.substr(4, 1);
-        switch (term) {
+        var termcode = programchoice.termCode;
+        if (termcode != "" && termcode != null && termcode != undefined) {
+            var term = termcode.substr(4, 1);
+            switch (term) {
 
-            case Term.Fall.toString(): return ("Fall " + programchoice.termCode.substr(0, 4));
-            case Term.Winter.toString(): return ("Winter " + programchoice.termCode.substr(0, 4));
-            case Term.Summer.toString(): return ("Summer " + programchoice.termCode.substr(0, 4));
-            default: return ("N/A");
+                case Term.Fall.toString(): return ("Fall " + termcode.substr(0, 4));
+                case Term.Winter.toString(): return ("Winter " + termcode.substr(0, 4));
+                case Term.Summer.toString(): return ("Summer " + termcode.substr(0, 4));
+                default: return ("N/A");
+            }
         }
-
+        else {
+            return "N/A";
+        }
 
     }
 
 
     getProgramCode(programchoice) {
-        return programchoice._transient.admissionSummary.programCode;
+        
+        var code = programchoice._transient.admissionSummary.programCode;
+        if (code != "" && code != null && code != undefined) {
+        return code;
+        }
+        return "N/A";
+
 
     }
 
     getProgramDesc(programchoice) {
-        return programchoice._transient.admissionSummary.programDesc;
+       
+
+        var desc = programchoice._transient.admissionSummary.programDesc;
+        if (desc != "" && desc != null && desc != undefined) {
+        return desc;
+        }
+        return "N/A";
+
 
     }
 

@@ -34,7 +34,7 @@ import {
 } from 'office-ui-fabric-react/lib/Button';
 import { Term } from "../utils/enums";
 import { Field } from "../utils/strColumns";
-
+import { MessageBar} from 'office-ui-fabric-react/lib/MessageBar';
 
 
 
@@ -126,7 +126,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
         })
         .then((response: { value: any }): void => {
           return resolve(response.value[0]["AcademicStatusJson"]);
-        })
+        }).catch(() => console.log("no record found"))
 
     });
   }
@@ -140,7 +140,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
       result = val;
 
       applications = JSON.parse(result)._transient.ocasApplications;
-      var programchoices = "";
+      
 
 
 
@@ -210,18 +210,18 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
 
       // ]
 
-      self.setState({ academicStatusJson: result, Applications: applications, programChoices: programchoices });
-    });
+      self.setState({ academicStatusJson: result, Applications: applications });
+    }).catch(() => console.log("no applications found"));
 
   }
 
 
   public render(): React.ReactElement<IAcademicDashboardAppsProps> {
 
-
+    var emptymarkup = applications.length <= 0 ? <MessageBar>You have no applications in your profile. </MessageBar> : "";
     return (
       <div className={styles.academicDashboardApps}>
-        
+        {emptymarkup}
         {/* <AltCollapse header="Application 16B9951 - 2015">
           <p>Content!</p>
           <p>Content!</p>
