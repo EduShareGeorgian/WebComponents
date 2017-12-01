@@ -9,7 +9,9 @@ import {
     CompoundButton,
     PrimaryButton
   } from 'office-ui-fabric-react/lib/Button';
-
+  import {
+    FocusZone
+  } from 'office-ui-fabric-react/lib/FocusZone';
 require('collapsiblefile.scss');
 
 export interface IProgramChoiceState {
@@ -19,6 +21,8 @@ export interface IProgramChoiceState {
     programCode: "",
     programDesc: ""
 }
+
+//var self = this;
 
 
 class ProgramChoice extends React.Component<any, IProgramChoiceState>{
@@ -60,7 +64,7 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
             var term = termcode.substr(4, 1);
             switch (term) {
 
-                case Term.Fall.toString(): return ("Fall " + termcode.substr(0, 4));
+                case Term.Fall.toString(): return ("Fall " + (parseInt(termcode.substr(0, 4),10) - 1)).toString();
                 case Term.Winter.toString(): return ("Winter " + termcode.substr(0, 4));
                 case Term.Summer.toString(): return ("Summer " + termcode.substr(0, 4));
                 default: return ("N/A");
@@ -100,15 +104,15 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
 
     componentDidMount() {
 
-        var self = this;
-        var programchoice = self.props.pchoice;
-        var campus = self.getCampus(programchoice);
-        var semester = self.getSemester(programchoice);
-        var programcode = self.getProgramCode(programchoice);
-        var programdesc = self.getProgramDesc(programchoice);
+        
+        var programchoice = this.props.pchoice;
+        var campus = this.getCampus(programchoice);
+        var semester = this.getSemester(programchoice);
+        var programcode = this.getProgramCode(programchoice);
+        var programdesc = this.getProgramDesc(programchoice);
 
-        self.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc });
-
+        this.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc });
+        this.state = {programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc}; 
     }
 
 
@@ -140,7 +144,8 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                         <p>When a team of explorers ventures into the catacombs that lie beneath the streets of Paris, they uncover the dark secret that lies within this city of the dead.</p>
                     </div>
 
-                    <div className="program_action">
+                    <div className="program_action" >
+                    
                     <CompoundButton
                     data-automation-id='checkmystatusbutton'
                     disabled={false}
@@ -152,6 +157,7 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                     
                     
                 </CompoundButton>
+                
                     </div>
                 </div>
 

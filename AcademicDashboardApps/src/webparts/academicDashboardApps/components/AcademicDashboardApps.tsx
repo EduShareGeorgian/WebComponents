@@ -15,7 +15,7 @@ import {
 import { IColumn, IDetailsRowProps, IDetailsRowCheckProps } from 'office-ui-fabric-react/lib/DetailsList';
 //import { DetailsRow } from 'office-ui-fabric-react/lib/components/DetailsList/DetailsRow';
 import {
-  FocusZone
+  FocusZone,FocusZoneDirection
 } from 'office-ui-fabric-react/lib/FocusZone';
 import {
   Selection,
@@ -30,6 +30,7 @@ import {
 
 
 import { MessageBar} from 'office-ui-fabric-react/lib/MessageBar';
+
 
 
 
@@ -146,25 +147,35 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
       applications.map((item, index) => (item._embedded.programChoices.map((subitem, subindex) => (_items.push(subitem)))));
       self._selection.setItems(_items);
 
-      applications.map((item, index) => (
+      applications.map((item, index) => {
 
+        //do the defaulting here;
+        
         _groups.push({
           count: item._embedded.programChoices.length,
           key: item.applicationNumber,
           level: 0,
-          name: "Application: " + item.applicationNumber + "-" + item.year,
+          name: "Year:" + item.year + "-" + item.applicationNumber,
           startIndex: calcStartIndex(item, index),
-          isCollapsed: true
-        })));
+          isCollapsed: true        
+         })
+
+       }
+      );
 
 
 
       function calcStartIndex(Mitem, Mindex) {
+        var resultcount = 0;
         if (Mindex <= 0)
           return 0 * Mitem._embedded.programChoices.length;
-        if (Mindex > 0)
-          return 1 * applications[Mindex - 1]._embedded.programChoices.length;
-
+        if (Mindex > 0){
+          for(Mindex;Mindex>0;Mindex--)
+          {
+            resultcount += applications[Mindex - 1]._embedded.programChoices.length;
+          }
+          return resultcount;
+        }
 
       }
 
@@ -242,25 +253,25 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
         </AltCollapse> */}
 
 
-        <FocusZone>
-          {/* <SelectionZone
-          selection={ this._selection }
-          selectionMode={ SelectionMode.multiple }
-        > */}
+        <FocusZone direction={FocusZoneDirection.bidirectional}>
+          
+        
           <GroupedList
-
+            
             items={_items}
             onRenderCell={this._onRenderCell}
-            selection={this._selection}
-            selectionMode={SelectionMode.multiple}
+            //selection={this._selection}
+            //selectionMode={SelectionMode.multiple}
             groups={_groups}
+            
+            
             
 
 
           />
          
-          {/* </SelectionZone> */}
-        </FocusZone>
+          
+          </FocusZone >
 
       </div>
     );
@@ -271,9 +282,9 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
 
 
   private _onRenderCell(nestingDepth: number, item: any, itemIndex: number) {
-    let {
-      _selection: selection
-    } = this;    
+    // let {
+    //   _selection: selection
+    // } = this;    
     
     return (
       

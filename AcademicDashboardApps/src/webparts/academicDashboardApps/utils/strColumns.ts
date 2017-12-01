@@ -4,7 +4,7 @@ export const Field = {
     programDesc: "programDesc",
     termCode:"termCode",
     banAdmInd:"banAdmInd",
-    oprgCode:"oprgCode"
-
+    oprgCode:"oprgCode",
+    campusDesc:"campusDesc"
 
 }
