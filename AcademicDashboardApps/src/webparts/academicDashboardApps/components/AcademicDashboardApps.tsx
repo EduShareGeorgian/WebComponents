@@ -8,10 +8,16 @@ import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 
 //import { BaseCollapse, AltCollapse, Collapse } from 'pivotal-ui/react/collapse';
 import {
-  GroupedList,
+  
+  
   IGroup,
   IGroupDividerProps
 } from 'office-ui-fabric-react/lib/components/GroupedList/index';
+import {GroupedList} from './GroupedList';
+//import { GroupHeader } from 'office-ui-fabric-react/lib/components/GroupedList/GroupHeader';
+import { GroupHeader } from './GroupHeader';
+
+
 import { IColumn, IDetailsRowProps, IDetailsRowCheckProps } from 'office-ui-fabric-react/lib/DetailsList';
 //import { DetailsRow } from 'office-ui-fabric-react/lib/components/DetailsList/DetailsRow';
 import {
@@ -251,8 +257,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
           <p>Content!</p>
           <p>Content!</p>
         </AltCollapse> */}
-
-
+        
         <FocusZone direction={FocusZoneDirection.bidirectional}>
           
         
@@ -263,7 +268,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
             //selection={this._selection}
             //selectionMode={SelectionMode.multiple}
             groups={_groups}
-            
+            //onGroupHeaderClick={(e)=>alert(e);}
             
             
 

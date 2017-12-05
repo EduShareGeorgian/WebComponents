@@ -2,8 +2,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
-import { Term } from "../utils/enums";
-import { Field } from "../utils/strColumns";
+import { Term,StatusQueue } from "../utils/enums";
+import { Field,Status } from "../utils/strColumns";
 import {
     IButtonProps,
     CompoundButton,
@@ -19,7 +19,8 @@ export interface IProgramChoiceState {
     campus: any,
     semester: any,
     programCode: "",
-    programDesc: ""
+    programDesc: "",
+    status : any
 }
 
 //var self = this;
@@ -33,7 +34,8 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
             campus: "",
             semester: "",
             programCode: "",
-            programDesc: ""
+            programDesc: "",
+            status :""
 
         };
     }
@@ -100,19 +102,45 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
 
     }
 
+    getStatus(programchoice) {
+        
+ 
+         var statusq = programchoice._transient.admissionSummary.currentQueueType;
+         var offerExpiryDate = programchoice._transient.admissionSummary.offerExpiryDate;
 
+
+
+         if (statusq != "" && statusq != null && statusq != undefined) {
+
+            switch(statusq){
+
+                case StatusQueue.O.toString() : {
+                    var curDateTime = new Date();
+                    if( curDateTime > new Date(offerExpiryDate))
+                    return Status.OfferExpired;
+
+                }
+                case StatusQueue.R.toString() :{return Status.Refused}
+                case StatusQueue.W.toString() :{return Status.Waitlisted}
+                case StatusQueue.NQ.toString() :{return (Status.NotAvailable + "/" + Status.NoDecision)}
+            }
+         
+         }
+         return "N/A";
+ 
+ 
+     }
 
     componentDidMount() {
-
-        
+       
         var programchoice = this.props.pchoice;
         var campus = this.getCampus(programchoice);
         var semester = this.getSemester(programchoice);
         var programcode = this.getProgramCode(programchoice);
         var programdesc = this.getProgramDesc(programchoice);
-
-        this.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc });
-        this.state = {programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc}; 
+        var status = this.getStatus(programchoice);
+        this.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc,status:status });
+        this.state = {programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc ,status:status}; 
     }
 
 
@@ -140,7 +168,7 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                         <p>9 days remaining </p>
                     </div>
                     <div className="program_desc">
-                        <p><span className="clsDarkLabel">Status:</span> Waitlisted</p>
+                        <p><span className="clsDarkLabel">Status:</span> {this.state.status}</p>
                         <p>When a team of explorers ventures into the catacombs that lie beneath the streets of Paris, they uncover the dark secret that lies within this city of the dead.</p>
                     </div>
 
