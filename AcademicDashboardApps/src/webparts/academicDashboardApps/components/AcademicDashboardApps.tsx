@@ -161,7 +161,7 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
           count: item._embedded.programChoices.length,
           key: item.applicationNumber,
           level: 0,
-          name: "Year:" + item.year + "-" + item.applicationNumber,
+          name: item.year + "-" + item.applicationNumber,
           startIndex: calcStartIndex(item, index),
           isCollapsed: true        
          })

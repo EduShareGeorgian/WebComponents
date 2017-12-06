@@ -2,7 +2,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
-import { Term,StatusQueue } from "../utils/enums";
+import { Term,StatusQueue,ActionLabel,ActionLink,Message } from "../utils/enums";
 import { Field,Status } from "../utils/strColumns";
 import {
     IButtonProps,
@@ -20,7 +20,12 @@ export interface IProgramChoiceState {
     semester: any,
     programCode: "",
     programDesc: "",
-    status : any
+    status : any,
+    actionLabel:any,
+    actionLink:any,
+    daysRemaining:any,
+    message:any,
+    IsActionButtonEnabled:any
 }
 
 //var self = this;
@@ -35,7 +40,12 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
             semester: "",
             programCode: "",
             programDesc: "",
-            status :""
+            status :"",
+            actionLabel:"",
+            actionLink:"",
+            daysRemaining:0,
+            message:"",
+            IsActionButtonEnabled:true
 
         };
     }
@@ -102,34 +112,99 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
 
     }
 
-    getStatus(programchoice) {
+   
+     processStatus(programchoice) {
         
- 
-         var statusq = programchoice._transient.admissionSummary.currentQueueType;
+         var processstatus = {status:Status.NotAvailable,action:{actionlable:ActionLabel.CheckMyStatus,actionlink:ActionLink.Banner,daysremaining:0,message:Message.None,IsActionButtonEnabled:true}};
+         var statusQ = programchoice._transient.admissionSummary.currentQueueType;
          var offerExpiryDate = programchoice._transient.admissionSummary.offerExpiryDate;
+         var refusedOffered = programchoice._transient.admissionSummary._transient.processState.reOffered;
+         var offerAccepted = programchoice._transient.admissionSummary._transient.processState.offerAccepted
 
 
+         if (statusQ != "" && statusQ != null && statusQ != undefined) {
 
-         if (statusq != "" && statusq != null && statusq != undefined) {
-
-            switch(statusq){
+            switch(statusQ){
 
                 case StatusQueue.O.toString() : {
                     var curDateTime = new Date();
-                    if( curDateTime > new Date(offerExpiryDate))
-                    return Status.OfferExpired;
-
+                   
+                    if(refusedOffered==true)//if student has refused the offer (Refused by applicant)
+                    {
+                        processstatus.status = Status.RefusedByApplicant;
+                        processstatus.action.actionlable = ActionLabel.NoAction;
+                        processstatus.action.actionlink = ActionLink.None;
+                        processstatus.action.daysremaining = 0;
+                        processstatus.action.message = Message.None;
+                        processstatus.action.IsActionButtonEnabled = false;
+                        
+                    }
+                    if(offerAccepted==true)//if student has accepted the offer (Confirmed)
+                    {
+                        processstatus.status = Status.Confirmed;
+                        processstatus.action.actionlable = ActionLabel.PayMyDeposit;
+                        processstatus.action.actionlink = ActionLink.Banner;
+                        processstatus.action.daysremaining = 0;
+                        processstatus.action.message = Message.None;
+                        processstatus.action.IsActionButtonEnabled = true;
+                        
+                    }  
+                    if( curDateTime > new Date(offerExpiryDate))//if offer expiry date has passed (Offer expired)
+                    {
+                        processstatus.status = Status.OfferExpired;
+                        processstatus.action.actionlable = ActionLabel.ContactAdmissionOfficer;
+                        processstatus.action.actionlink = ActionLink.Banner;
+                        processstatus.action.daysremaining = 0;
+                        processstatus.action.message = Message.msgAdmissionOfficer;
+                        processstatus.action.IsActionButtonEnabled = false;
+                        
+                    }
+                    break;
                 }
-                case StatusQueue.R.toString() :{return Status.Refused}
-                case StatusQueue.W.toString() :{return Status.Waitlisted}
-                case StatusQueue.NQ.toString() :{return (Status.NotAvailable + "/" + Status.NoDecision)}
+                case StatusQueue.R.toString() :
+                {
+                    processstatus.status = Status.Refused
+                    processstatus.action.actionlable =  ActionLabel.NoAction;
+                    processstatus.action.actionlink = ActionLink.None;
+                    processstatus.action.daysremaining = 0;
+                    processstatus.action.message = Message.None;
+                    processstatus.action.IsActionButtonEnabled = false;
+                    break;
+                    
+                }
+                case StatusQueue.W.toString() :
+                {
+                    processstatus.status = Status.Waitlisted
+                    processstatus.action.actionlable =  ActionLabel.NoAction;
+                    processstatus.action.actionlink = ActionLink.None;
+                    processstatus.action.daysremaining = 0;
+                    processstatus.action.message = Message.None;
+                    processstatus.action.IsActionButtonEnabled = false;
+                    break;
+                    
+                }
+                case StatusQueue.NQ.toString() :
+                {
+                    processstatus.status = (Status.NotAvailable + "/" + Status.NoDecision)
+                    processstatus.action.actionlable =  ActionLabel.CheckMyStatus;
+                    processstatus.action.actionlink = ActionLink.Banner;
+                    processstatus.action.daysremaining = 0;
+                    processstatus.action.message = Message.None;
+                    processstatus.action.IsActionButtonEnabled = true;
+                    break;
+                    
+                }
             }
          
          }
-         return "N/A";
+         return processstatus;
  
  
      }
+
+
+
+
 
     componentDidMount() {
        
@@ -138,9 +213,9 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
         var semester = this.getSemester(programchoice);
         var programcode = this.getProgramCode(programchoice);
         var programdesc = this.getProgramDesc(programchoice);
-        var status = this.getStatus(programchoice);
-        this.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc,status:status });
-        this.state = {programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc ,status:status}; 
+        var action = this.processStatus(programchoice);
+        this.setState({ programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc,status:action.status,actionLabel:action.action.actionlable,actionLink:action.action.actionlink,daysRemaining:action.action.daysremaining,message:action.action.message,IsActionButtonEnabled:action.action.IsActionButtonEnabled});
+        this.state = {programChoice: programchoice, campus: campus, semester: semester, programCode: programcode, programDesc: programdesc ,status:action.status,actionLabel:action.action.actionlable,actionLink:action.action.actionlink,daysRemaining:action.action.daysremaining,message:action.action.message,IsActionButtonEnabled:action.action.IsActionButtonEnabled}; 
     }
 
 
@@ -165,21 +240,21 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                     <div className="program_info">
                         <p><span className="clsDarkLabel">Campus:</span> {this.state.campus}</p>
                         <p><span className="clsDarkLabel">Semester:</span> {this.state.semester}</p>
-                        <p>9 days remaining </p>
+                        <p>{this.state.daysRemaining} Days Remaining</p>
                     </div>
                     <div className="program_desc">
                         <p><span className="clsDarkLabel">Status:</span> {this.state.status}</p>
-                        <p>When a team of explorers ventures into the catacombs that lie beneath the streets of Paris, they uncover the dark secret that lies within this city of the dead.</p>
+                        <p>{this.state.message}</p>
                     </div>
 
                     <div className="program_action" >
                     
                     <CompoundButton
                     data-automation-id='checkmystatusbutton'
-                    disabled={false}
+                    disabled={!this.state.IsActionButtonEnabled}
                     checked={false}
-                    text={"Check My Application Status"}
-                    href='https://georgiancollege.sharepoint.com/sites/go/Pages/BannerAppStatus.aspx'
+                    text={this.state.actionLabel}
+                    href={this.state.actionLink}
                     target='_blank'
                     className="clsActionButton">
                     

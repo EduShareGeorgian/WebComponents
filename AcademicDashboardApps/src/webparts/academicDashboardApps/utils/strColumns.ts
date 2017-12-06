@@ -11,7 +11,7 @@ export const Field = {
 
 
 export const Status = {
-    
+        NSlashA:"N/A",
         NotAvailable : "Not Available",
         NoDecision: "No Decision",
         ConditionalOffer:"Conditional Offer",

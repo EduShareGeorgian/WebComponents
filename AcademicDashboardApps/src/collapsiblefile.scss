@@ -113,6 +113,15 @@ background-color: #004b87;
 color:white;
 }
 
+button.ms-GroupHeader-expand{
+
+  color:#fff;
+}
+
+
+.program_action button.is-disabled{
+  background-color: #e0e0e0
+}
 
 button.ms-GroupHeader-check
 {
@@ -160,7 +169,7 @@ html {
   display: block;
   //max-width: 550px;
   width:97%;
-  height:240px;
+  min-height:175px;
   border-radius: 4px;
   margin:10px;
   position: relative;

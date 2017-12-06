@@ -14,3 +14,34 @@ export enum StatusQueue{
 
 }
 
+export enum ActionLabel{
+    None = "",
+    CheckMyStatus = "Check My Status", //by default
+    NoAction = "No Action", 
+    PayMyDeposit = "Pay My Deposit", 
+    ContactAdmissionOfficer = "Contact Admission Officer" ,
+    AcceptMyOffer = "Accept My Offer"
+
+}
+
+export enum ActionLink{
+    None = "",
+    Banner = "https://georgiancollege.sharepoint.com/sites/go/Pages/BannerAppStatus.aspx", 
+    OCAS = "http://www.ontariocolleges.ca/", 
+    
+
+}
+
+export enum Message{
+    None = "",
+    msgAdmissionOfficer = "Please contact your Admissions Officer" 
+    
+    
+
+}
+
+
+
+
+
+
