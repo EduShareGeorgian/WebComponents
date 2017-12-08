@@ -20,7 +20,8 @@ export enum ActionLabel{
     NoAction = "No Action", 
     PayMyDeposit = "Pay My Deposit", 
     ContactAdmissionOfficer = "Contact Admission Officer" ,
-    AcceptMyOffer = "Accept My Offer"
+    AcceptMyOffer = "Accept My Offer",
+    RegisterNow = "Register Now"
 
 }
 
@@ -34,8 +35,10 @@ export enum ActionLink{
 
 export enum Message{
     None = "",
-    msgAdmissionOfficer = "Please contact your Admissions Officer" 
-    
+    msgAdmissionOfficer = "Please contact your Admissions Officer",
+    msgMissedDepositDueDate = "you've missed the deadline to pay your deposit - contact your admissions officer",
+    msgMissedRegistrationDueDate = "you've missed the deadline to register - contact your admissions officer", 
+    msgMissedOfferAcceptDueDate = " you've missed the deadline to confirm - contact your admissions officer"
     
 
 }
