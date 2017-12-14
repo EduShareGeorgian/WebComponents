@@ -54,7 +54,8 @@ export interface IAcademicDashboardAppsState {
   academicStatusJson: "",
   Applications: any,
   programChoices: any,
-  groupCount: any
+  groupCount: any,
+  isAlreadyExpanded:any
 
 }
 
@@ -74,7 +75,8 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
       academicStatusJson: "",
       Applications: [],
       programChoices: [],
-      groupCount: 0
+      groupCount: 0,
+      isAlreadyExpanded:false
     };
 
     this._onRenderCell = this._onRenderCell.bind(this);
@@ -138,22 +140,20 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
 
 
     var self = this, result;
+    var curyear = new Date().getFullYear();
     this.getCurUser().then(val => this.getMyJson(val)).then(function (val) {
       result = val;
-
       applications = JSON.parse(result)._transient.ocasApplications;
       
-
-
-
       //_items = _items || createListItems(Math.pow(groupCount, groupDepth + 1));//applications;
       //_groups = _groups || createGroups(groupCount, groupDepth, 0, groupCount);//applications[0];
 
-
-      applications.map((item, index) => (item._embedded.programChoices.map((subitem, subindex) => (_items.push(subitem)))));
+      applications.slice(0).reverse().map((item, index) => (item._embedded.programChoices.map((subitem, subindex) => (_items.push(subitem)))));
       self._selection.setItems(_items);
-
-      applications.map((item, index) => {
+     
+      var returnedYear = getFirstElmentBiggerOrEqualToCurYear(applications);
+      
+      applications.slice(0).reverse().map((item, index) => {
 
         //do the defaulting here;
         
@@ -163,12 +163,35 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
           level: 0,
           name: item.year + "-" + item.applicationNumber,
           startIndex: calcStartIndex(item, index),
-          isCollapsed: true        
+          isCollapsed: calcIsExpanded(item, index)        
          })
 
        }
       );
+      
+     
+      function getFirstElmentBiggerOrEqualToCurYear(applications)
+      {
+        var futureYearExist = applications.filter(function(item){
+          return item.year >= curyear;
+        })
+        return futureYearExist.length > 0 ? futureYearExist[0].year : applications[applications.length-1].year
+     
+      }
 
+
+      function calcIsExpanded(itemm,indexm){
+         
+         if(itemm.year == returnedYear && !self.state.isAlreadyExpanded)
+         {
+           self.setState({isAlreadyExpanded:true});
+           //this.state.isAlreadyExpanded = true;
+           return false;
+         }
+        
+
+        return true;
+      }
 
 
       function calcStartIndex(Mitem, Mindex) {
