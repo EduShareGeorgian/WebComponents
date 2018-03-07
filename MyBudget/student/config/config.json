@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/studentBudget/StudentBudgetWebPart.js",
+      "manifest": "./src/webparts/studentBudget/StudentBudgetWebPart.manifest.json",
+      "outputPath": "./dist/student-budget.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "studentBudgetStrings": "webparts/studentBudget/loc/{locale}.js"
+  }
+
+
+}

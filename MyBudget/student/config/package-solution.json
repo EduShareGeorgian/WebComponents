@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "student-budget-client-side-solution",
+    "id": "ad22102e-08ea-46fb-8fc2-5b9ac57f2b18",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/student-budget.sppkg"
+  }
+}
