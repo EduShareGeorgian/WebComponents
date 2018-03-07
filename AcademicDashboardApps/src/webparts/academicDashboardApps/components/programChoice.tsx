@@ -161,7 +161,7 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
         var offerExpiryDate = programchoice._transient.admissionSummary.offerExpiryDate;
         var refusedOffered = programchoice._transient.admissionSummary._transient.processState.reOffered;
         var offerAccepted = programchoice._transient.admissionSummary._transient.processState.offerAccepted;
-        var depositDueDate = programchoice._transient.admissionSummary.depositDueDate;// dummy date used for now for deposit due date
+        var depositDueDate = programchoice._transient.admissionSummary.hardDate//depositDueDate;// dummy date used for now for deposit due date
         var depositAcknowledged = programchoice._transient.admissionSummary._transient.processState.depositAcknowledged;
         var registrationExpiryDate = programchoice._transient.admissionSummary.registrationExpiryDate;// dummy date used for now for registration expiry date
         var conditionalInd = programchoice._transient.admissionSummary.conditionalInd;
@@ -243,13 +243,13 @@ class ProgramChoice extends React.Component<any, IProgramChoiceState>{
                     if (offerAccepted == "true" && depositAcknowledged == "true" && refusedOffered == "false")// if offer is accepted and deposit is paid (elegible to register)
                     {
                         //add counter for register deadline
-                        var regdays = this.getCountdown(registrationExpiryDate);
+                        //var regdays = this.getCountdown(registrationExpiryDate);
                         processstatus.status = Status.EligibleToRegister;
                         processstatus.action.actionlable = ActionLabel.RegisterNow;
                         processstatus.action.actionlink = ActionLink.Banner;
-                        processstatus.action.daysremaining = regdays + " Days Remaining to Register";;
-                        processstatus.action.message = regdays > 0 ? Message.None : Message.msgMissedRegistrationDueDate;
-                        processstatus.action.IsActionButtonEnabled = regdays > 0 ? true : false;
+                        //processstatus.action.daysremaining = regdays + " Days Remaining to Register";;
+                        processstatus.action.message = Message.None;//regdays > 0 ? Message.None : Message.msgMissedRegistrationDueDate;
+                        processstatus.action.IsActionButtonEnabled = true;//regdays > 0 ? true : false;
                     }
                     break;
                 }

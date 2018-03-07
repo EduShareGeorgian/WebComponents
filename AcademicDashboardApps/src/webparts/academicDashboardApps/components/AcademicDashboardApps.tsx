@@ -196,14 +196,16 @@ export default class AcademicDashboardApps extends React.Component<IAcademicDash
 
       function calcStartIndex(Mitem, Mindex) {
         var resultcount = 0;
-        if (Mindex <= 0)
+        if (Mindex <= 0){
           return 0 * Mitem._embedded.programChoices.length;
+        }
         if (Mindex > 0){
           for(Mindex;Mindex>0;Mindex--)
           {
-            resultcount += applications[Mindex - 1]._embedded.programChoices.length;
+            resultcount = resultcount + applications.slice(0).reverse()[Mindex - 1]._embedded.programChoices.length;
           }
-          return resultcount;
+          
+          return resultcount ;
         }
 
       }
