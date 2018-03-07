@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "e7afd415-9a1f-478e-b8e9-1db806d23ea8",
+  "alias": "StudentBudgetWebPart",
+  "componentType": "WebPart",
+  "version": "*", // The "*" signifies that the version should be taken from the package.json
+  "manifestVersion": 2,
+
+  /**
+   * This property should only be set to true if it is certain that the webpart does not
+   *  allow arbitrary scripts to be called
+   */
+  "safeWithCustomScriptDisabled": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "group": { "default": "Other" },
+    "title": { "default": "My Budget" },
+    "description": { "default": "Find out how much cash you&#39;ll have on hand at the end of every month thanks to our handy budget planning tool." },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "MyBudget"
+    }
+  }]
+}

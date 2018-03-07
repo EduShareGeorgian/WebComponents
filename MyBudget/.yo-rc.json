@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.1.1",
+    "libraryName": "student-budget",
+    "libraryId": "ad22102e-08ea-46fb-8fc2-5b9ac57f2b18",
+    "environment": "spo"
+  }
+}

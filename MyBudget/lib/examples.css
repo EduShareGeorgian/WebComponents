@@ -1,0 +1,123 @@
+
+
+.react-grid-Canvas{
+    overflow-y:hidden !important;
+    overflow-x:hidden !important;
+  
+}
+
+.ControlZone-control{
+margin-left: -45px;
+}
+  
+.react-grid-HeaderCell{
+    height:16px !important;
+}
+
+.sep{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+   
+}
+
+.oct{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+   
+}
+
+.nov{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+
+.dev{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.jan{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.feb{
+    width: 7.6%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+
+.mar{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.apr{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.may{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.june{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+.july{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+
+.aug{
+    width: 7.5%  !important;; 
+    padding-left: 0px  !important;;
+    padding-right: 0px !important;;
+}
+
+
+.year{
+   width: 4.5%;
+   text-align: right
+}
+
+.react-grid-Cell {
+   
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border: 1px solid  #ddd !important;
+   
+}
+
+  .drag-handle {
+  position: absolute;
+  bottom: -5px;
+  right: -4px;
+  background: #66afe9;
+  width: 0px !important;
+  height: 0px !important;
+  border: 0px solid red;
+  border-right: 0px;
+  border-bottom: 0px;
+  z-index: 8;
+  cursor: crosshair;
+  cursor: -webkit-grab;
+}
+
+.react-grid-Cell__value{
+padding-left:3px;
+
+}
+
+
+
+
+  
+
