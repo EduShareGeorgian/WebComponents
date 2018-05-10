@@ -3,16 +3,16 @@
 
 import * as React from 'react';
 import { assert, expect } from 'chai';
-import { mount,shallow } from 'enzyme';
+import { mount,shallow,configure } from 'enzyme';
 import ProgramChoice from '../components/programChoice';
 
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
+
+import * as ReactFifteenAdapter from 'enzyme-adapter-react-15.4';
 
 
 
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new ReactFifteenAdapter() });
 
 declare const sinon;
 
