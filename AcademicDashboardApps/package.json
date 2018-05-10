@@ -19,7 +19,7 @@
     "@types/react-addons-test-utils": "0.14.15",
     "@types/react-addons-update": "0.14.14",
     "@types/react-dom": "0.14.18",
-    "@types/sinon": "^4.1.0",
+    "@types/sinon": "4.3.1",
     "@types/webpack-env": ">=1.12.1 <1.14.0",
     "@uifabric/example-app-base": "^5.1.2",
     "enzyme-adapter-react-15": "^1.0.5",
