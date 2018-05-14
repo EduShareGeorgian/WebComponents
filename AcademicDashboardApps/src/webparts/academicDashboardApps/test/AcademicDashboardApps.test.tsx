@@ -181,6 +181,7 @@ describe('<ProgramChoice /> without currentQueueType node', () => {
                 "bannerMajorCode": "ECED",
                 "campusCode": "OR",
                 "campusDesc": "Orillia",
+                "conditionalInd": "true",
                 "currentQueueType": "O",
                 "dateProgramReceived": "2007-01-03T05:00:00Z",
                 "depositPaid": "true",
@@ -203,7 +204,7 @@ describe('<ProgramChoice /> without currentQueueType node', () => {
                 "offerAccRefDate": "2007-02-22T05:00:00Z",
                 "offerAcceptedInd": "true",
                 "offerActiveDate": "2007-02-15T05:00:00Z",
-                "offerExpiryDate": "2007-05-01T04:00:00Z",
+                "offerExpiryDate": "2019-05-01T04:00:00Z",
                 "depositDueDate": "2017-12-07T18:00:00Z",
                 "registrationExpiryDate": "2017-12-07T18:00:00Z",
                 "offerSentDate": "2007-07-17T20:59:50Z",
@@ -231,8 +232,8 @@ describe('<ProgramChoice /> without currentQueueType node', () => {
                         "reOffered": "false",
                         "noDeOffer": "false",
                         "offerOutstanding": "false",
-                        "offerAccepted": "true",
-                        "depositAcknowledged": "true",
+                        "offerAccepted": "false",
+                        "depositAcknowledged": "false",
                         "registered": "true"
                     }
                 },
@@ -256,6 +257,18 @@ describe('<ProgramChoice /> without currentQueueType node', () => {
     it('<ProgramChoice/> should not render "Not Available" as status when currentqueuetype node is there', () => {
         // Check if the status is not availavle when it doesnt find currentqueuetype        
         expect(shallowRenderedElement.find('div.program_desc').text()).to.not.contain("Not Available");
+    });
+
+    
+
+    it('<ProgramChoice/> check the scenario for condition offer', () => {
+        // check the scenario for condition offer
+        //conditionalInd == "true" && offerAccepted == "false" && refusedOffered == "false"
+        programChoiceObj._transient.admissionSummary.conditionalInd == "true";
+        programChoiceObj._transient.admissionSummary._transient.processState.offerAccepted == "false";
+        programChoiceObj._transient.admissionSummary._transient.processState.reOffered == "false";
+        shallowRenderedElement.setState({programChoice:programChoiceObj});                
+        expect(shallowRenderedElement.update().find('div.program_desc').text()).to.contain("Conditional Offer");
     });
 
 });
