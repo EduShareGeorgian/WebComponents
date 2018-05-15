@@ -1,0 +1,370 @@
+.panel-heading{
+
+
+  background-color: lightgrey;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.panel-collapse{
+
+  background-color:#F8F8F8;
+  border:2px solid lightgrey;
+}
+
+.panel
+{
+ background-color: white;
+ margin-bottom: 5px !important;
+
+}
+
+
+
+
+.collapse-trigger .icon,.collapse-trigger .icon svg{
+
+  height:2.0em !important;
+  width:2.0em !important;
+}
+
+.is-open{
+    height:40px;
+    }
+    
+
+    .Collapsible__trigger__trigger{
+
+      height:40px;
+    }
+
+
+    .ms-GroupHeader-title 
+    {
+
+      font-weight: bold;
+    }
+
+    .ms-GroupHeader:hover{
+    color:#666666;
+    background-color: #BABABA
+
+  }
+    .ms-GroupHeader
+    {
+
+      BACKGROUND-COLOR:#00778b !important;
+      COLOR:  WHITE;
+      BORDER-BOTTOM:2PX SOLID WHITE;
+    }
+    .ms-List{
+
+      background-color:#f6f6f6;
+    }
+
+    .ms-List .ms-List-page .ms-List-cell .card{
+      border:2px solid #ededed;
+    }
+
+    .ms-DetailsRow
+    {
+
+      background-color: #eee;
+      border-bottom: 2px solid #f4f4f4;
+    }
+
+    .ms-GroupHeader-expand .ms-Icon
+    {
+
+      font-weight: bolder;
+    }
+
+    .ms-DetailsRow-fields
+    {
+
+      width:100%;
+    }
+
+    .ms-DetailsRow-cell:nth-child(1){
+
+      width:10%;
+    }
+    .ms-DetailsRow-cell:nth-child(2){
+      
+            width:25%;
+          }
+          .ms-DetailsRow-cell:nth-child(3){
+            
+                  width:15%;
+                }
+          .ms-DetailsRow-cell:nth-child(4){
+            
+                  width:50%;
+                }
+
+.ms-DetailsRow-cellCheck{
+  display: none;
+}
+.clsActionButton{
+padding: 10px;
+height: 40px;
+min-height: 40px;
+background-color: #004b87;
+color:white;
+min-width:189px;
+text-align: center;
+}
+
+button.ms-GroupHeader-expand{
+
+  color:#fff;
+}
+
+
+.program_action .clsActionButton .ms-Button-label{
+
+  text-align:center;
+}
+
+
+.program_action button.is-disabled{
+  background-color: #e0e0e0
+}
+
+button.ms-GroupHeader-check
+{
+
+  display:none;
+}
+
+
+
+/* for boxes */
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html {
+  box-sizing: border-box;
+}
+
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+//   padding: 0;
+//   margin: 0;
+// }
+
+// body,
+// html {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// body {
+//   font-family: 'Varela Round', sans-serif;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0px 10px;
+//   line-height: 1.3;
+// }
+
+.card {
+  margin-bottom:10px;
+  background:#fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  //max-width: 550px;
+  width:97%;
+  min-height:175px;
+  border-radius: 4px;
+  margin:10px;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 520px) {
+    background: rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, .2);
+  }
+  
+  .center {
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    position: relative;
+    z-index: 99;
+    @media (max-width: 520px) {
+      padding: 10px 0px;
+    }
+  }
+  .about_program {
+    flex-basis: 100%;
+    padding: 10px 10px;
+    position: relative;
+    // z-index: 99;
+    text-align:left;
+    align-items: left;
+    @media (max-width: 520px) {
+      align-items: center;
+      text-align: center;
+    }
+    h4 {
+      color: #121212;
+      font-size: 18px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      text-align: left;
+    }
+    .clsDarkLabel{
+
+      color:#000 !important;
+      font-weight: bold;
+    }
+    .program_info {
+      display: flex;
+      margin-top:10px;
+      justify-content: space-between;
+      @media (max-width: 520px) {
+        justify-content: space-around;
+      }
+      font-size: 14px;
+      color: #121212;
+    }
+
+.program_info p{
+
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+
+    .program_desc {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: #121212;
+      position: relative;
+      // z-index: 99;
+    }
+
+    .program_action{
+      text-align: right;
+      width:100%;
+    }
+  }
+  
+  
+  
+  
+}
+
+
+
+
+
+/*for boxes */ 
+
+
+
+
+
+
+
+
+
+
+
+
+    // The main container element
+    .Collapsible {
+      background-color: whitesmoke;
+    }
+    
+    .Collapsible__trigger__contentOuter
+{  margin-top:20px; }
+
+
+
+   
+    
+    //The content within the collaspable area
+    .Collapsible__contentInner {
+      padding: 10px;
+      border: 1px solid lightgray;
+      border-top: 0;
+      background-color: #fff !important;
+      // margin-top:20px;
+    
+      p {
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+    
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+
+
+    //The link which when clicked opens the collapsable area
+    .Collapsible__trigger {
+      display: block;
+      font-weight: 400;
+      text-decoration: none;
+      color: grey;
+      position: relative;
+      border: 1px solid lightgray;
+      // padding: 10px;
+      background: cyan;
+      color: white;
+      
+    
+    
+      &:after {
+        font-family: 'FontAwesome';
+        content: '\f107';
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        display: block;
+        transition: transform 300ms;
+      }
+    
+      &.is-open {
+        
+        
+        &:after {
+          // transform: rotateZ(180deg);
+          content: '\f106' !important;
+        }
+    
+      }
+    
+      &.is-disabled {
+        opacity: 0.5;
+        background-color: grey;
+      }
+    }
+    
+    .CustomTriggerCSS {
+      background-color: lightcoral;
+      transition: background-color 200ms ease;
+      
+      
+    }
+    
+    .CustomTriggerCSS--open {
+      background-color: darkslateblue;
+    }
+    
+    .Collapsible__custom-sibling {
+      padding: 5px;
+      font-size: 12px;
+      background-color: #CBB700;
+      color: black;
+    }

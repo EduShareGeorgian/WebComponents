@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Academic Dashboard Multiple Applications",
+    "id": "f9831cb7-796c-4e25-91d1-3b478a538833",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/academic-dashboard-apps.sppkg"
+  }
+}
